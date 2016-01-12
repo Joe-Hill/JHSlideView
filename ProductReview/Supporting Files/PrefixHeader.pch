@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  ProductReview
+//
+//  Created by Joe on 1/9/16.
+//  Copyright © 2016 Joe. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+Simplify.h"
+#import "JHLineView.h"
+
+#define JHReviewCellGutter  8
+
+//  RGB颜色
+#define JHColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+//  随机颜色
+#define JHRandomColor JHColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#define JHDefaultColor JHColor(251, 103, 91)
+#define JHGrayColor JHColor(220, 220, 220)
+
+
+
+#endif /* PrefixHeader_pch */
