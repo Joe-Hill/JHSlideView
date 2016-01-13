@@ -62,10 +62,10 @@
 - (void)buttonOnClick:(UIButton *)button {
     NSInteger index   = button.x / button.width + 0.5;
     BOOL      isMoved = index - self.currentButtonIndex;
-    if (isMoved) {
+    if (isMoved) {  //  判断是否移动，如果移动就执行动画
         [UIView animateWithDuration:0.2  animations:^{
              self.signView.x = button.width * JHSignViewScale + button.width * index;
-         } completion:^(BOOL finished) {
+         } completion:^(BOOL finished) {    //  动画结束改变状态，执行代理方法
              [self.buttons[self.currentButtonIndex] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
              [self.buttons[index] setTitleColor:JHDefaultColor forState:UIControlStateNormal];
              if ([self.delegate respondsToSelector:@selector(tabBar:didClickButton:index:)]) {

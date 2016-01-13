@@ -12,10 +12,11 @@
 
 @implementation UIImageView (WebImage)
 - (void)setWebImageWithURL:(NSString *)url placeHolder:(NSString *)placeHolder {
-    [self yy_setImageWithURL:[NSURL URLWithString:url]
-                 placeholder:[UIImage imageNamed:placeHolder]
-                     options:YYWebImageOptionProgressive
-                  completion:nil];
+	[self yy_setImageWithURL:[NSURL URLWithString:url]
+	 placeholder:[UIImage imageNamed:placeHolder]
+	 options:YYWebImageOptionProgressiveBlur |
+	 YYWebImageOptionSetImageWithFadeAnimation
+	 completion:nil];
 }
 
 @end

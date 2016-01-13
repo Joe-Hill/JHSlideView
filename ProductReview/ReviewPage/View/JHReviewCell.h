@@ -11,5 +11,12 @@
 
 @interface JHReviewCell : UITableViewCell
 @property (nonatomic, strong) JHReviewFrame *reviewFrame;
+/**
+ *  初始化 cell
+ *
+ *  @param tableView cell 父视图 tablView
+ *
+ *  @return cell
+ */
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

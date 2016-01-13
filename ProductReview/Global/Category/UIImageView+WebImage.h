@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImageView (WebImage)
+/**
+ *  异步加载网络图片
+ *
+ *  @param url         网络图片地址
+ *  @param placeHolder 占位图路径
+ */
 - (void)setWebImageWithURL:(NSString *)url placeHolder:(NSString *)placeHolder;
 @end

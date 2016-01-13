@@ -47,6 +47,11 @@
     return self;
 }
 
+/**
+ *  set reviewFraem 时创建视图，并赋予属性
+ *
+ *  @param reviewFrame reviewFrame 模型
+ */
 - (void)setReviewFrame:(JHReviewFrame *)reviewFrame {
     _reviewFrame = reviewFrame;
     JHReview *review = reviewFrame.review;

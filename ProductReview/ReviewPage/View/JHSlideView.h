@@ -24,6 +24,12 @@
 - (void)slideView:(JHSlideView *)slideView didMoveToEmptyPlaceHolderViewAtIndex:(NSInteger)index;
 
 @optional
+/**
+ *  视图滑动动画停止
+ *
+ *  @param slideView 当前 slideView
+ *  @param index     当前占位视图的索引
+ */
 - (void)slideView:(JHSlideView *)slideView didMoveToPlaceHolderViewAtIndex:(NSInteger)index;
 @end
 

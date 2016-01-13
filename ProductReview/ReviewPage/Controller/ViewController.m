@@ -8,13 +8,15 @@
 
 #import "ViewController.h"
 
+#import <WebKit/WebKit.h>
+
 #import "UIBarButtonItem+Extension.h"
 #import "JHHTTPManager.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) JHSlideView           *slideView;
-@property (nonatomic, strong) JHTableViewController *reviewController;
-@property (nonatomic, strong) JHTableViewController *photoController;
+@property(nonatomic, strong) JHSlideView           *slideView;
+@property(nonatomic, strong) JHTableViewController *reviewController;
+@property(nonatomic, strong) JHTableViewController *photoController;
 @end
 
 @implementation ViewController
@@ -40,46 +42,43 @@
 
 #pragma mark - delegates
 #pragma mark JHSlideView delegate
-- (void)slideView:(JHSlideView *)slideView didMoveToEmptyPlaceHolderViewAtIndex:(NSInteger)index  {
+- (void)slideView:(JHSlideView *)slideView didMoveToEmptyPlaceHolderViewAtIndex:(NSInteger)index {
     switch (index) {
     default:
         break;
     case JHSlideViewTypePhoto: {
         [self.slideView loadView:self.photoController.tableView forPlaceHolderViewAtIndex:JHSlideViewTypePhoto];
         [self.photoController getReviews];
-    }
-    break;
+    } break;
     case JHSlideViewTypeApple: {
-        UIWebView *webView = [[UIWebView alloc] init];
-        webView.delegate = self;
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://leancloud.cn/"]];
+        WKWebView    *webView = [[WKWebView alloc] init];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://v2ex.com/"]];
         [webView loadRequest:request];
         [self.slideView loadView:webView forPlaceHolderViewAtIndex:index];
-
-    }
-    break;
+    } break;
     case JHSlideViewTypeReactJS: {
-        UIWebView *webView = [[UIWebView alloc] init];
-        webView.delegate = self;
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.reactjs-china.com/"]];
+        WKWebView    *webView = [[WKWebView alloc] init];
+        NSURLRequest *request = [NSURLRequest
+                                 requestWithURL:[NSURL URLWithString:@"https://cnodejs.org/"]];
         [webView loadRequest:request];
         [self.slideView loadView:webView forPlaceHolderViewAtIndex:index];
-    }
-    break;
+    } break;
     }
 }
 
 #pragma mark JHTableViewControllerDelegate
-- (void)tableViewController:(JHTableViewController *)controller returnTitles:(NSDictionary *)titles {
-    [self.slideView modifyTitle:[NSString stringWithFormat:@"全部(%@)", titles[@"countAll"]] atIndex:0];
+- (void)tableViewController:(JHTableViewController *)controller
+               returnTitles:(NSDictionary *)titles {
+    [self.slideView modifyTitle:[NSString stringWithFormat:@"全部(%@)", titles[@"countAll"]]   atIndex:0];
     [self.slideView modifyTitle:[NSString stringWithFormat:@"图片(%@)", titles[@"countPhoto"]] atIndex:1];
 }
 
 #pragma mark - getters
 - (JHSlideView *)slideView {
     if (_slideView == nil) {
-        CGFloat navigationMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-        _slideView          = [JHSlideView viewWithFrame:CGRectMake(0, self.view.y + navigationMaxY, self.view.width, self.view.height - navigationMaxY) titles:@[@"全部", @"有图", @"Leancloud", @"ReactJS"]];
+        CGFloat navigationMaxY =
+            CGRectGetMaxY(self.navigationController.navigationBar.frame);
+        _slideView          = [JHSlideView viewWithFrame:CGRectMake(0, self.view.y + navigationMaxY, self.view.width, self.view.height - navigationMaxY) titles:@[ @"全部", @"有图", @"V2EX", @"NodeJS" ]];
         _slideView.delegete = self;
     }
     return _slideView;

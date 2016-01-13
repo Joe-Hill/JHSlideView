@@ -20,18 +20,35 @@ typedef NS_ENUM (NSInteger, JHSlideViewType){
 @protocol JHTableViewControllerDelegate <NSObject>
 
 @optional
+/**
+ *  JHTableViewController 请求到标题数组
+ *
+ *  @param controller 当前 JHTableViewController
+ *  @param titles     请求的标题数组
+ */
 - (void)tableViewController:(JHTableViewController *)controller returnTitles:(NSDictionary *)titles;
 
 @end
 
 @interface JHTableViewController : UITableViewController
 
-@property (nonatomic, assign) JHSlideViewType                 viewType;
-@property (nonatomic, strong) NSMutableDictionary             *params;
-@property (nonatomic, strong) NSMutableDictionary             *headerParams;
+@property (nonatomic, assign) JHSlideViewType                 viewType;         /**< 当前 slideView 中 view 的类型 */
+@property (nonatomic, strong) NSMutableDictionary             *params;          /**< 请求参数 */
+@property (nonatomic, strong) NSMutableDictionary             *headerParams;    /**< 请求头消息参数 */
 @property (nonatomic, weak) id<JHTableViewControllerDelegate> delegate;
 
+/**
+ *  以 JHSlideViewType 初始化
+ *
+ *  @param type slideView 中 view 的类型
+ *
+ *  @return JHTableViewController
+ */
 - (JHTableViewController *)initWithViewType:(JHSlideViewType)type;
+
+/**
+ *  请求普评论数据
+ */
 - (void)getReviews;
 
 @end

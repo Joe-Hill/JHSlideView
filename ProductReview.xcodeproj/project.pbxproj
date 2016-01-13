@@ -17,6 +17,7 @@
 		D856CB251C42C40200FB99B8 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D856CB241C42C40200FB99B8 /* NSString+Extension.m */; };
 		D8785A7A1C410A8600678167 /* JHSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8785A791C410A8600678167 /* JHSlideView.m */; };
 		D8785A7D1C414EC900678167 /* JHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D8785A7C1C414EC900678167 /* JHTabBar.m */; };
+		D8828F991C462575003ED0AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8828F981C462575003ED0AA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D89BB6991C4527BA00DB2597 /* UIImageView+WebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D89BB6981C4527BA00DB2597 /* UIImageView+WebImage.m */; };
 		D89BB6AE1C45469100DB2597 /* JHPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = D89BB6AD1C45469100DB2597 /* JHPicture.m */; };
 		D89BB6B11C454DB300DB2597 /* JHPicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = D89BB6B01C454DB300DB2597 /* JHPicturesView.m */; };
@@ -73,6 +74,7 @@
 		D8785A791C410A8600678167 /* JHSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSlideView.m; sourceTree = "<group>"; };
 		D8785A7B1C414EC900678167 /* JHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTabBar.h; sourceTree = "<group>"; };
 		D8785A7C1C414EC900678167 /* JHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTabBar.m; sourceTree = "<group>"; };
+		D8828F981C462575003ED0AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D89BB6971C4527BA00DB2597 /* UIImageView+WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebImage.h"; sourceTree = "<group>"; };
 		D89BB6981C4527BA00DB2597 /* UIImageView+WebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebImage.m"; sourceTree = "<group>"; };
 		D89BB6AC1C45469100DB2597 /* JHPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPicture.h; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8828F991C462575003ED0AA /* WebKit.framework in Frameworks */,
 				57EB077F4E74DAE3A8942494 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +147,7 @@
 		385B34EBE0B8229443CD18B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8828F981C462575003ED0AA /* WebKit.framework */,
 				C21F456DC5C8FEFBA3E2516C /* libPods.a */,
 			);
 			name = Frameworks;
@@ -658,7 +662,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ProductReview/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = "ProductReview/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.joehill.ProductReview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -674,7 +678,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ProductReview/Supporting Files/PrefixHeader.pch";
 				INFOPLIST_FILE = "ProductReview/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.joehill.ProductReview;
 				PRODUCT_NAME = "$(TARGET_NAME)";

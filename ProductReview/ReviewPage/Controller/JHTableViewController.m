@@ -15,11 +15,10 @@
 
 #import "JHHTTPManager.h"
 #import <YYModel.h>
-#import <MJRefresh.h>
 
 @interface JHTableViewController ()
-@property (nonatomic, strong) NSMutableArray *reviewFrames;
-@property (nonatomic, assign) NSInteger      reviewsViewPageCount;
+@property (nonatomic, strong) NSMutableArray *reviewFrames;                 /**< 评论的 frame 模型 */
+@property (nonatomic, assign) NSInteger      reviewsViewPageCount;          /**< 当前评论的页数 */
 @property (nonatomic, assign) BOOL           isLoadingMoreReviews;          /**< 判断是否在读取更多数据 */
 @end
 
@@ -85,6 +84,13 @@
 }
 
 #pragma mark - private methods
+/**
+ *  review 模型 转换 reviewFrame 模型
+ *
+ *  @param reviews review 模型数组
+ *
+ *  @return reviewFrame 模型数组
+ */
 - (NSArray *)reviewFramesWithReviews:(NSArray *)reviews {
     NSMutableArray *frames = [NSMutableArray array];
     for (JHReview *review in reviews) {
@@ -119,7 +125,7 @@
     CGFloat offsetY = scrollView.contentOffset.y;
     // 当最后一个cell完全显示在眼前时，contentOffset的y值
     CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height;
-    if (offsetY >= judgeOffsetY) { // 最后一个cell完全进入视野范围内
+    if (offsetY >= judgeOffsetY) {     // 最后一个cell完全进入视野范围内
         [self loadMoreReviews];
     }
 }

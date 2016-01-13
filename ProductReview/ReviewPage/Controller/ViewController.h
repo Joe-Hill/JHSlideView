@@ -13,7 +13,5 @@
 #import "JHSlideView.h"
 
 @interface ViewController : UIViewController<UIWebViewDelegate, JHSlideViewDelegate, JHTableViewControllerDelegate>
-
-
 @end
 

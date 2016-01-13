@@ -15,6 +15,11 @@
 
 @implementation JHReviewFrame
 
+/**
+ *  在 set review 模型时，一次性提前计算好所有视图的 frame
+ *
+ *  @param review review 模型
+ */
 - (void)setReview:(JHReview *)review {
     _review = review;
 
@@ -57,8 +62,8 @@
     } else {
         detailY = CGRectGetMaxY(self.contentLabelFrame) + JHReviewCellGutter;
     }
+
     //  细节
-//    detailY = 100;
     CGFloat detailX    = JHReviewCellBoarder;
     CGSize  detailSize = [review.detail sizeWithFont:JHReviewCellContentFont maxWidth:maxWidth];
     self.detailLabelFrame = (CGRect){{detailX, detailY}, detailSize};

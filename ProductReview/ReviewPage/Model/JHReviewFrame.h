@@ -20,16 +20,16 @@
 @class JHReview;
 
 @interface JHReviewFrame : NSObject
-@property (nonatomic, strong) JHReview *review;
-@property (nonatomic, assign) CGRect   avatarViewFrame;
-@property (nonatomic, assign) CGRect   nameLabelFrame;
-@property (nonatomic, assign) CGRect   rateViewFrame;
-@property (nonatomic, assign) CGRect   rateLabelFrame;
-@property (nonatomic, assign) CGRect   contentLabelFrame;
-@property (nonatomic, assign) CGRect   picturesViewFrame;
-@property (nonatomic, assign) CGRect   detailLabelFrame;
-@property (nonatomic, assign) CGRect   reviewViewFrame;
-@property (nonatomic, assign) CGRect   lineViewFrame;
+@property (nonatomic, strong) JHReview *review;                 /**< review 模型 */
+@property (nonatomic, assign) CGRect   avatarViewFrame;         /**< 头像 frame */
+@property (nonatomic, assign) CGRect   nameLabelFrame;          /**< 名称 label frame */
+@property (nonatomic, assign) CGRect   rateViewFrame;           /**< 评分星 frame */
+@property (nonatomic, assign) CGRect   rateLabelFrame;          /**< 评分 label frame */
+@property (nonatomic, assign) CGRect   contentLabelFrame;       /**< 评价内容 frame */
+@property (nonatomic, assign) CGRect   picturesViewFrame;       /**< 评价配图 frame */
+@property (nonatomic, assign) CGRect   detailLabelFrame;        /**< 具体信息 frame */
+@property (nonatomic, assign) CGRect   reviewViewFrame;         /**< 整体评论视图 frame */
+@property (nonatomic, assign) CGRect   lineViewFrame;           /**< 分割线 frame */
 
-@property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, assign) CGFloat cellHeight;               /**< cell 高度 */
 @end
