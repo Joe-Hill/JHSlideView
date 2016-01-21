@@ -10,7 +10,7 @@
 
 @interface JHPageView : UIScrollView
 
-@property (nonatomic, strong, readonly) NSArray<UIView *> *placeHolderViews;
+@property (nonatomic, strong, readonly) NSArray<__kindof UIView *> *placeHolderViews;
 
 /**
  *  实例化一个 JHPageView

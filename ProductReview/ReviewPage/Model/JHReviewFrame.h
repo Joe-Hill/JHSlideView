@@ -17,6 +17,7 @@
 #define JHReviewCellContentFont     [UIFont systemFontOfSize:15]
 #define JHReviewCellDetailFont      [UIFont systemFontOfSize:11]
 
+
 @class JHReview;
 
 @interface JHReviewFrame : NSObject

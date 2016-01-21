@@ -16,7 +16,7 @@
 @implementation JHReview
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
-    self.detail     = [NSString stringWithFormat:@"%@ %@ %@", self.cityName, self.skuDescription, self.createDate];
+    self.detail     = [NSString stringWithFormat:@"%@ %@ %@", self.createDate, self.cityName, self.skuDescription];
     self.stringRate = [NSString stringWithFormat:@"%0.1f", self.rate];
     NSMutableArray *mutablePictures = [NSMutableArray array];
     for (NSString *url in self.photos) {

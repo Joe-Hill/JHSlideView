@@ -10,6 +10,8 @@
 
 @interface JHHTTPManager : NSObject
 
++ (JHHTTPManager *)manager;
+
 /**
  *  GET 方法
  *

@@ -12,10 +12,11 @@
 #define JHSignViewScale     0.1
 
 @interface JHTabBar ()
-@property (nonatomic, strong) NSMutableArray<UIButton *> *buttons;                  /**< tabBar 中的按钮 */
-@property (nonatomic, assign) CGFloat                    buttonWidth;               /**< 按钮的宽度 */
-@property (nonatomic, assign) NSInteger                  currentButtonIndex;        /**< 当前被点击的按钮的索引 */
-@property (nonatomic, strong) UIView                     *signView;                 /**< 起标记作用的下方滑动视图 */
+@property (nonatomic, copy) NSArray                    *titles;                     /**< tabBar 中的标题 */
+@property (nonatomic, copy) NSMutableArray<UIButton *> *buttons;                    /**< tabBar 中的按钮 */
+@property (nonatomic, assign) CGFloat                  buttonWidth;                 /**< 按钮的宽度 */
+@property (nonatomic, assign) NSInteger                currentButtonIndex;          /**< 当前被点击的按钮的索引 */
+@property (nonatomic, strong) UIView                   *signView;                   /**< 起标记作用的下方滑动视图 */
 @end
 
 @implementation JHTabBar
@@ -24,20 +25,24 @@
 - (JHTabBar *)initWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles {
     self = [self initWithFrame:frame];
     if (self) {
-        [self addSubview:[JHLineView horizontalLintWithOrign:CGPointMake(0, self.height) width:self.width color:JHGrayColor]];
         NSInteger tabCount = titles.count;
         CGFloat   width    = self.width / tabCount;
         self.buttonWidth        = width;
         self.currentButtonIndex = 0;
-
-        [self setupButtonsWithTitles:titles];
-        [self addSubview:self.signView];
+        self.titles             = titles;
     }
     return self;
 }
 
 + (JHTabBar *)tabBarWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles {
     return [[self alloc] initWithFrame:frame titles:titles];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self addSubview:[JHLineView horizontalLintWithOrign:CGPointMake(0, self.height) width:self.width color:JHGrayColor]];
+    [self setupButtonsWithTitles:self.titles];
+    [self addSubview:self.signView];
 }
 
 - (void)setupButtonsWithTitles:(NSArray<NSString *> *)titles {

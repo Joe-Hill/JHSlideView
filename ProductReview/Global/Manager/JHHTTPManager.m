@@ -22,6 +22,10 @@ typedef NS_ENUM (NSUInteger, JHHTTPRequestType) {
 
 @implementation JHHTTPManager
 
++ (JHHTTPManager *)manager {
+    return [[self alloc] init];
+}
+
 - (void)modifyHeaderWithParams:(NSDictionary *)params {
     self.headerParams = params;
 }

@@ -102,6 +102,7 @@
 - (UIImageView *)avatarView {
     if (_avatarView == nil) {
         _avatarView                    = [[UIImageView alloc] init];
+        _avatarView.clipsToBounds      = YES;
         _avatarView.layer.cornerRadius = JHAvatarRadius;
         [_reviewView addSubview:_avatarView];
     }
@@ -155,9 +156,10 @@
 
 - (UILabel *)detailLabel {
     if (_detailLabel == nil) {
-        _detailLabel           = [[UILabel alloc] init];
-        _detailLabel.font      = JHReviewCellDetailFont;
-        _detailLabel.textColor = [UIColor grayColor];
+        _detailLabel               = [[UILabel alloc] init];
+        _detailLabel.numberOfLines = 0;
+        _detailLabel.font          = JHReviewCellDetailFont;
+        _detailLabel.textColor     = [UIColor grayColor];
         [_reviewView addSubview:_detailLabel];
     }
     return _detailLabel;

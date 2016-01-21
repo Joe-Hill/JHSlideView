@@ -13,8 +13,9 @@
 typedef NS_ENUM (NSInteger, JHSlideViewType){
     JHSlideViewTypeAll = 0,
     JHSlideViewTypePhoto,
-    JHSlideViewTypeApple,
-    JHSlideViewTypeReactJS
+    JHSlideViewTypeV2EX,
+    JHSlideViewTypeNodeJS,
+    JHSlideViewTypeTableView
 };
 
 @protocol JHTableViewControllerDelegate <NSObject>

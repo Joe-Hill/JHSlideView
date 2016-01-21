@@ -16,6 +16,8 @@
 #import "JHHTTPManager.h"
 #import <YYModel.h>
 
+#define JHCellJudgementHeight 50
+
 @interface JHTableViewController ()
 @property (nonatomic, strong) NSMutableArray *reviewFrames;                 /**< 评论的 frame 模型 */
 @property (nonatomic, assign) NSInteger      reviewsViewPageCount;          /**< 当前评论的页数 */
@@ -24,10 +26,13 @@
 
 @implementation JHTableViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = JHGrayColor;
-    self.tableView.separatorStyle  = NO;
+//    self.tableView.backgroundColor = JHGrayColor;
+    self.tableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
+//    UIView *view  = [UIView alloc] initWithFrame:CGRectMake(0, 100, [UIWindow ], <#CGFloat height#>)
+//    self.tableView addSubview:<#(nonnull UIView *)#>
 }
 
 - (JHTableViewController *)initWithViewType:(JHSlideViewType)type {
@@ -43,7 +48,7 @@
     self.params[@"page"]      = @"0";
     self.reviewsViewPageCount = 0;
 
-    JHHTTPManager *manager = [[JHHTTPManager alloc] init];
+    JHHTTPManager *manager = [JHHTTPManager manager];
     [manager modifyHeaderWithParams:self.headerParams];
 
     [manager GET:@"https://api.octinn.com/store/goods/11869/comments/" params:self.params success:^(id JSON) {
@@ -65,7 +70,7 @@
 
 - (void)loadMoreReviews {
     self.isLoadingMoreReviews = YES;
-    JHHTTPManager *manager = [[JHHTTPManager alloc] init];
+    JHHTTPManager *manager = [JHHTTPManager manager];
     [manager modifyHeaderWithParams:self.headerParams];
 
     [manager GET:@"https://api.octinn.com/store/goods/11869/comments/" params:self.params success:^(id JSON) {
@@ -124,7 +129,7 @@
     if (self.reviewFrames.count == 0 || self.isLoadingMoreReviews == YES) return;
     CGFloat offsetY = scrollView.contentOffset.y;
     // 当最后一个cell完全显示在眼前时，contentOffset的y值
-    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height;
+    CGFloat judgeOffsetY = scrollView.contentSize.height - scrollView.height - JHCellJudgementHeight;
     if (offsetY >= judgeOffsetY) {     // 最后一个cell完全进入视野范围内
         [self loadMoreReviews];
     }

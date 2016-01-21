@@ -13,6 +13,8 @@
 #import "UIBarButtonItem+Extension.h"
 #import "JHHTTPManager.h"
 
+
+
 @interface ViewController ()
 @property(nonatomic, strong) JHSlideView           *slideView;
 @property(nonatomic, strong) JHTableViewController *reviewController;
@@ -20,6 +22,7 @@
 @end
 
 @implementation ViewController
+
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -50,13 +53,13 @@
         [self.slideView loadView:self.photoController.tableView forPlaceHolderViewAtIndex:JHSlideViewTypePhoto];
         [self.photoController getReviews];
     } break;
-    case JHSlideViewTypeApple: {
+    case JHSlideViewTypeV2EX: {
         WKWebView    *webView = [[WKWebView alloc] init];
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://v2ex.com/"]];
         [webView loadRequest:request];
         [self.slideView loadView:webView forPlaceHolderViewAtIndex:index];
     } break;
-    case JHSlideViewTypeReactJS: {
+    case JHSlideViewTypeNodeJS: {
         WKWebView    *webView = [[WKWebView alloc] init];
         NSURLRequest *request = [NSURLRequest
                                  requestWithURL:[NSURL URLWithString:@"https://cnodejs.org/"]];
@@ -76,9 +79,8 @@
 #pragma mark - getters
 - (JHSlideView *)slideView {
     if (_slideView == nil) {
-        CGFloat navigationMaxY =
-            CGRectGetMaxY(self.navigationController.navigationBar.frame);
-        _slideView          = [JHSlideView viewWithFrame:CGRectMake(0, self.view.y + navigationMaxY, self.view.width, self.view.height - navigationMaxY) titles:@[ @"全部", @"有图", @"V2EX", @"NodeJS" ]];
+        CGFloat navigationMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+        _slideView          = [JHSlideView viewWithFrame:CGRectMake(0, self.view.y + navigationMaxY, self.view.width, self.view.height - navigationMaxY) titles:@[ @"全部", @"有图", @"V2EX", @"NodeJS"]];
         _slideView.delegete = self;
     }
     return _slideView;

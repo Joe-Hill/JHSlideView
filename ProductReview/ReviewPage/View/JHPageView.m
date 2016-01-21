@@ -10,7 +10,7 @@
 
 @interface JHPageView ()
 
-@property (nonatomic, strong) NSMutableArray<UIView *> *privatePlaceHolderViews;
+@property (nonatomic, strong) NSMutableArray<__kindof UIView *> *privatePlaceHolderViews;
 
 @end
 
@@ -18,7 +18,6 @@
 #pragma mark - initialization
 - (JHPageView *)initWithFrame:(CGRect)frame pageCount:(NSUInteger)pageCount {
     self = [super initWithFrame:frame];
-    NSMutableArray *placeHolderViews = [NSMutableArray array];
     if (self) {
         CGFloat width  = frame.size.width;
         CGFloat height = frame.size.height;
@@ -30,9 +29,8 @@
         for (int i = 0; i < pageCount; i++) {
             UIView *placeHolderView = [[UIView alloc] initWithFrame:CGRectMake(width *i, 0, width, height)];
             [self addSubview:placeHolderView];
-            [placeHolderViews addObject:placeHolderView];
+            [self.privatePlaceHolderViews addObject:placeHolderView];
         }
-        self.privatePlaceHolderViews = [placeHolderViews copy];
     }
     return self;
 }
@@ -52,6 +50,13 @@
 #pragma mark - getters
 - (NSArray<UIView *> *)placeHolderViews {
     return _privatePlaceHolderViews = [self.privatePlaceHolderViews copy];
+}
+
+- (NSMutableArray<UIView *> *)privatePlaceHolderViews {
+    if (_privatePlaceHolderViews == nil) {
+        _privatePlaceHolderViews = [[NSMutableArray alloc] init];
+    }
+    return _privatePlaceHolderViews;
 }
 
 @end

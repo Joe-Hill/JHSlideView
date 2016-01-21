@@ -40,6 +40,7 @@
     _pictures          = pictures;
     self.picturesCount = pictures.count;
 
+    //  添加足够的视图
     while (self.subviews.count < self.picturesCount) {
         UIImageView *pictureView = [[UIImageView alloc] init];
         pictureView.contentMode        = UIViewContentModeScaleAspectFill;

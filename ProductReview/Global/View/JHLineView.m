@@ -9,9 +9,9 @@
 #import "JHLineView.h"
 
 //  1 pixel line
-//#define SINGLE_LINE_ADJUST_OFFSET           0
+#define SINGLE_LINE_ADJUST_OFFSET           SINGLE_LINE_WIDTH
 #define SINGLE_LINE_WIDTH               (1 / [UIScreen mainScreen].scale)
-#define SINGLE_LINE_ADJUST_OFFSET       ((1 / [UIScreen mainScreen].scale) / 2)
+//#define SINGLE_LINE_ADJUST_OFFSET       ((1 / [UIScreen mainScreen].scale) / 2)
 
 //  1 point line
 //#define SINGLE_LINE_WIDTH           1
