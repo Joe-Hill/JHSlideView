@@ -16,12 +16,13 @@
 #import "JHHTTPManager.h"
 #import <YYModel.h>
 
-#define JHCellJudgementHeight 50
+#define JH_CELLJUDGEMENT_HEIGHT 50
 
 @interface JHTableViewController ()
 @property (nonatomic, strong) NSMutableArray *reviewFrames;                 /**< 评论的 frame 模型 */
 @property (nonatomic, assign) NSInteger      reviewsViewPageCount;          /**< 当前评论的页数 */
 @property (nonatomic, assign) BOOL           isLoadingMoreReviews;          /**< 判断是否在读取更多数据 */
+@property (nonatomic, strong) UIView         *popView;
 @end
 
 @implementation JHTableViewController
@@ -30,9 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.tableView.backgroundColor = JHGrayColor;
-    self.tableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
-//    UIView *view  = [UIView alloc] initWithFrame:CGRectMake(0, 100, [UIWindow ], <#CGFloat height#>)
-//    self.tableView addSubview:<#(nonnull UIView *)#>
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (JHTableViewController *)initWithViewType:(JHSlideViewType)type {
@@ -125,11 +124,11 @@
 
 #pragma mark UIScrollView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // 如果tableView还没有数据，就直接返回
+//     如果tableView还没有数据，就直接返回
     if (self.reviewFrames.count == 0 || self.isLoadingMoreReviews == YES) return;
     CGFloat offsetY = scrollView.contentOffset.y;
     // 当最后一个cell完全显示在眼前时，contentOffset的y值
-    CGFloat judgeOffsetY = scrollView.contentSize.height - scrollView.height - JHCellJudgementHeight;
+    CGFloat judgeOffsetY = scrollView.contentSize.height - scrollView.height - JH_CELLJUDGEMENT_HEIGHT;
     if (offsetY >= judgeOffsetY) {     // 最后一个cell完全进入视野范围内
         [self loadMoreReviews];
     }

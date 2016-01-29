@@ -53,6 +53,7 @@
  *  @param reviewFrame reviewFrame 模型
  */
 - (void)setReviewFrame:(JHReviewFrame *)reviewFrame {
+//    NSLog(@"%s", __func__);
     _reviewFrame = reviewFrame;
     JHReview *review = reviewFrame.review;
 
@@ -60,12 +61,14 @@
     //  头像
     self.avatarView.frame = reviewFrame.avatarViewFrame;
     [self.avatarView setWebImageWithURL:review.avatar placeHolder:@"avatar_default"];
+//    [self.avatarView setWebImageWithURL:review.avatar placeHolder:@"avatar_default" radius:JH_AVATAR_RADIUS];
 
     //  昵称
     self.nameLabel.frame = reviewFrame.nameLabelFrame;
     self.nameLabel.text  = review.userName;
     //  星
     self.rateView.frame = reviewFrame.rateViewFrame;
+//    self.rateView.frame = CGRectMake(0, 0, arc4random_uniform(JH_STAR_SIDE * 5), JH_STAR_SIDE);
     self.rateView.score = review.rate;
     //  评分
     self.rateLabel.frame = reviewFrame.rateLabelFrame;
@@ -101,9 +104,9 @@
 
 - (UIImageView *)avatarView {
     if (_avatarView == nil) {
-        _avatarView                    = [[UIImageView alloc] init];
+        _avatarView = [[UIImageView alloc] init];
         _avatarView.clipsToBounds      = YES;
-        _avatarView.layer.cornerRadius = JHAvatarRadius;
+        _avatarView.layer.cornerRadius = JH_AVATAR_RADIUS;
         [_reviewView addSubview:_avatarView];
     }
     return _avatarView;
@@ -112,7 +115,7 @@
 - (UILabel *)nameLabel {
     if (_nameLabel == nil) {
         _nameLabel      = [[UILabel alloc] init];
-        _nameLabel.font = JHReviewCellNameFont;
+        _nameLabel.font = JH_REVIEWCELL_NAME_FONT;
         [_reviewView addSubview:_nameLabel];
     }
     return _nameLabel;
@@ -129,8 +132,8 @@
 - (UILabel *)rateLabel {
     if (_rateLabel == nil) {
         _rateLabel           = [[UILabel alloc] init];
-        _rateLabel.font      = JHReviewCellRateFont;
-        _rateLabel.textColor = JHDefaultColor;
+        _rateLabel.font      = JH_REVIEWCELL_RATE_FONT;
+        _rateLabel.textColor = JH_DEFAULT_COLOR;
         [_reviewView addSubview:_rateLabel];
     }
     return _rateLabel;
@@ -139,7 +142,7 @@
 - (UILabel *)contentLabel {
     if (_contentLabel == nil) {
         _contentLabel               = [[UILabel alloc] init];
-        _contentLabel.font          = JHReviewCellContentFont;
+        _contentLabel.font          = JH_REVIEWCELL_CONTENT_FONT;
         _contentLabel.numberOfLines = 0;
         [_reviewView addSubview:_contentLabel];
     }
@@ -158,7 +161,7 @@
     if (_detailLabel == nil) {
         _detailLabel               = [[UILabel alloc] init];
         _detailLabel.numberOfLines = 0;
-        _detailLabel.font          = JHReviewCellDetailFont;
+        _detailLabel.font          = JH_REVIEWCELL_DETAIL_FONT;
         _detailLabel.textColor     = [UIColor grayColor];
         [_reviewView addSubview:_detailLabel];
     }
@@ -167,7 +170,7 @@
 
 - (UIView *)lineView {
     if (_lineView == nil) {
-        _lineView = [JHLineView lineWithStyle:JHLineViewStyleHorizon color:JHGrayColor];
+        _lineView = [JHLineView lineWithStyle:JHLineViewStyleHorizon color:JH_GRAY_COLOR];
         [_reviewView addSubview:_lineView];
     }
     return _lineView;

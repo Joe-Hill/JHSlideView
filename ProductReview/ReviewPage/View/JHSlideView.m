@@ -26,14 +26,11 @@
     if (self) {
         self.pageCount = titles.count;
         self.titiles   = titles;
+
+        [self addSubview:self.tabBar];
+        [self addSubview:self.pageView];
     }
     return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    [self addSubview:self.tabBar];
-    [self addSubview:self.pageView];
 }
 
 + (JHSlideView *)viewWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles {

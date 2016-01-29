@@ -16,4 +16,13 @@
  *  @param placeHolder 占位图路径
  */
 - (void)setWebImageWithURL:(NSString *)url placeHolder:(NSString *)placeHolder;
+
+/**
+ *  异步加载网络图片
+ *
+ *  @param url         网络图片地址
+ *  @param placeHolder 占位图路径
+ *  @param radius      图片圆角
+ */
+- (void)setWebImageWithURL:(NSString *)url placeHolder:(NSString *)placeHolder radius:(CGFloat)radius;
 @end

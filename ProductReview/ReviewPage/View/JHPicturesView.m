@@ -29,7 +29,7 @@
     //  设置图片的尺寸和位置
     for (int i = 0; i < self.picturesCount; i++) {
         UIImageView *pictureView = self.subviews[i];
-        pictureView.x      = (self.pictureSide + JHReviewCellGutter) * i;
+        pictureView.x      = (self.pictureSide + JH_REVIEWCELL_GUTTER) * i;
         pictureView.y      = 0;
         pictureView.width  = self.pictureSide;
         pictureView.height = self.pictureSide;

@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JHStarsView : UIView
-
 @property (nonatomic, assign) CGFloat score;    /**< 分数 */
-
 @end

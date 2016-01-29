@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define JHReviewCellBoarder         17
-#define JHAvatarSide                30
-#define JHAvatarRadius              JHAvatarSide * 0.5
-#define JHStarSide                  13
-#define JHReviewCellNameFont        [UIFont systemFontOfSize:14]
-#define JHReviewCellRateFont        [UIFont systemFontOfSize:14]
-#define JHReviewCellContentFont     [UIFont systemFontOfSize:15]
-#define JHReviewCellDetailFont      [UIFont systemFontOfSize:11]
+#define JH_REVIEWCELL_BOARDER           17
+#define JH_AVATAR_SIDE                  30
+#define JH_AVATAR_RADIUS                JH_AVATAR_SIDE * 0.5
+#define JH_STAR_SIDE                    13
+#define JH_REVIEWCELL_NAME_FONT         [UIFont systemFontOfSize:14]
+#define JH_REVIEWCELL_RATE_FONT         [UIFont systemFontOfSize:14]
+#define JH_REVIEWCELL_CONTENT_FONT      [UIFont systemFontOfSize:15]
+#define JH_REVIEWCELL_DETAIL_FONT       [UIFont systemFontOfSize:11]
 
 
 @class JHReview;

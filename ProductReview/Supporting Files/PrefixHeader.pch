@@ -10,34 +10,15 @@
 #define PrefixHeader_pch
 
 #ifdef __OBJC__
+
+#import "JHColor.h"
+#import "JHLog.h"
 #import "UIView+Simplify.h"
 #import "JHLineView.h"
+
 #endif
 
-#define JHReviewCellGutter  8
+#define JH_REVIEWCELL_GUTTER  8
 
-//  RGB颜色
-#define JHColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
-
-//  随机颜色
-#define JHRandomColor JHColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
-#define JHDefaultColor JHColor(251, 103, 91)
-#define JHGrayColor JHColor(220, 220, 220)
-
-
-#import <asl.h>
-#define THIS_FILE [(@"" __FILE__) lastPathComponent]
-
-#define _NSLog(fmt,...) {                                               \
-do                                                                      \
-{                                                                       \
-NSString *str = [NSString stringWithFormat:fmt, ##__VA_ARGS__];         \
-printf("%s\n",[str UTF8String]);                                        \
-asl_log(NULL, NULL, ASL_LEVEL_NOTICE, "%s", [str UTF8String]);          \
-}                                                                       \
-while (0);                                                              \
-}
-
-#define NSLog(fmt, ...) _NSLog((@"%@:%d %s " fmt), THIS_FILE, __LINE__, __FUNCTION__, ##__VA_ARGS__)
 
 #endif /* PrefixHeader_pch */

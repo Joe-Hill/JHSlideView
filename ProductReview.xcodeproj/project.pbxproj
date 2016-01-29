@@ -62,6 +62,8 @@
 		D81FBAC41C40166B00BADDDA /* JHStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHStarsView.m; sourceTree = "<group>"; };
 		D83D63E41C421D2C00B9D29E /* JHPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPageView.h; sourceTree = "<group>"; };
 		D83D63E51C421D2C00B9D29E /* JHPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPageView.m; sourceTree = "<group>"; };
+		D84538551C511AAF00345D21 /* JHColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHColor.h; sourceTree = "<group>"; };
+		D84538561C511AF200345D21 /* JHLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHLog.h; sourceTree = "<group>"; };
 		D856CB171C42949500FB99B8 /* JHReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHReview.h; sourceTree = "<group>"; };
 		D856CB181C42949500FB99B8 /* JHReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHReview.m; sourceTree = "<group>"; };
 		D856CB1A1C42A80A00FB99B8 /* JHReviewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHReviewFrame.h; sourceTree = "<group>"; };
@@ -248,6 +250,8 @@
 				D8F9AB421C400FAF00C4B76B /* LaunchScreen.storyboard */,
 				D8F9AB3D1C400FAF00C4B76B /* Main.storyboard */,
 				D89C289C1C401BA2002CA050 /* PrefixHeader.pch */,
+				D84538551C511AAF00345D21 /* JHColor.h */,
+				D84538561C511AF200345D21 /* JHLog.h */,
 				D8F9AB351C400FAF00C4B76B /* main.m */,
 			);
 			path = "Supporting Files";

@@ -30,19 +30,16 @@
         self.buttonWidth        = width;
         self.currentButtonIndex = 0;
         self.titles             = titles;
+
+        [self addSubview:[JHLineView horizontalLintWithOrign:CGPointMake(0, self.height) width:self.width color:JH_GRAY_COLOR]];
+        [self setupButtonsWithTitles:self.titles];
+        [self addSubview:self.signView];
     }
     return self;
 }
 
 + (JHTabBar *)tabBarWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles {
     return [[self alloc] initWithFrame:frame titles:titles];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    [self addSubview:[JHLineView horizontalLintWithOrign:CGPointMake(0, self.height) width:self.width color:JHGrayColor]];
-    [self setupButtonsWithTitles:self.titles];
-    [self addSubview:self.signView];
 }
 
 - (void)setupButtonsWithTitles:(NSArray<NSString *> *)titles {
@@ -67,16 +64,17 @@
 - (void)buttonOnClick:(UIButton *)button {
     NSInteger index   = button.x / button.width + 0.5;
     BOOL      isMoved = index - self.currentButtonIndex;
+    __weak typeof(self) weak_self = self;
     if (isMoved) {  //  判断是否移动，如果移动就执行动画
         [UIView animateWithDuration:0.2  animations:^{
-             self.signView.x = button.width * JHSignViewScale + button.width * index;
+             _signView.x = button.width * JHSignViewScale + button.width * index;
          } completion:^(BOOL finished) {    //  动画结束改变状态，执行代理方法
-             [self.buttons[self.currentButtonIndex] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-             [self.buttons[index] setTitleColor:JHDefaultColor forState:UIControlStateNormal];
-             if ([self.delegate respondsToSelector:@selector(tabBar:didClickButton:index:)]) {
-                 [self.delegate tabBar:self didClickButton:button index:index];
+             [_buttons[_currentButtonIndex] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+             [_buttons[index] setTitleColor:JH_DEFAULT_COLOR forState:UIControlStateNormal];
+             if ([_delegate respondsToSelector:@selector(tabBar:didClickButton:index:)]) {
+                 [_delegate tabBar:weak_self didClickButton:button index:index];
              }
-             self.currentButtonIndex = index;
+             _currentButtonIndex = index;
          }];
     }
 }
@@ -97,10 +95,10 @@
 - (UIView *)signView {
     if (_signView == nil) {
         _signView                     = [[UIView alloc] initWithFrame:CGRectMake(self.buttonWidth * JHSignViewScale, self.height - JHSignViewHeight, self.buttonWidth * JHSignViewScale * 8, JHSignViewHeight)];
-        _signView.backgroundColor     = JHDefaultColor;
+        _signView.backgroundColor     = JH_DEFAULT_COLOR;
         _signView.layer.cornerRadius  = 2;
         _signView.layer.masksToBounds = YES;
-        [self.buttons[0] setTitleColor:JHDefaultColor forState:UIControlStateNormal];
+        [self.buttons[0] setTitleColor:JH_DEFAULT_COLOR forState:UIControlStateNormal];
 
     }
     return _signView;

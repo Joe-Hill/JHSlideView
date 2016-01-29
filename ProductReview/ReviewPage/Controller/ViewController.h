@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 #import "JHTableViewController.h"
 
 #import "JHSlideView.h"
 
-@interface ViewController : UIViewController<UIWebViewDelegate, JHSlideViewDelegate, JHTableViewControllerDelegate>
+@interface ViewController : UIViewController<UIWebViewDelegate, JHSlideViewDelegate, JHTableViewControllerDelegate, WKNavigationDelegate>
 @end
 

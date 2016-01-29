@@ -27,48 +27,49 @@
     CGFloat detailY   = 0;
 
     //  头像
-    self.avatarViewFrame = CGRectMake(JHReviewCellBoarder, JHReviewCellBoarder, JHAvatarSide, JHAvatarSide);
+    self.avatarViewFrame = CGRectMake(JH_REVIEWCELL_BOARDER, JH_REVIEWCELL_BOARDER, JH_AVATAR_SIDE, JH_AVATAR_SIDE);
     //  昵称
-    CGSize  nameSize = [review.userName sizeWithFont:JHReviewCellNameFont maxWidth:MAXFLOAT];
-    CGFloat nameX    = CGRectGetMaxX(self.avatarViewFrame) + JHReviewCellGutter;
+    CGSize  nameSize = [review.userName sizeWithFont:JH_REVIEWCELL_NAME_FONT maxWidth:MAXFLOAT];
+    CGFloat nameX    = CGRectGetMaxX(self.avatarViewFrame) + JH_REVIEWCELL_GUTTER;
     CGFloat nameY    = CGRectGetMidY(self.avatarViewFrame) - nameSize.height * 0.5;
     self.nameLabelFrame = (CGRect){{nameX, nameY}, nameSize};
 
     //  分数
-    CGSize  rateSize = [review.stringRate sizeWithFont:JHReviewCellRateFont maxWidth:MAXFLOAT];
-    CGFloat rateX    = cellWidth - JHReviewCellBoarder - rateSize.width;
+    CGSize  rateSize = [review.stringRate sizeWithFont:JH_REVIEWCELL_RATE_FONT maxWidth:MAXFLOAT];
+    CGFloat rateX    = cellWidth - JH_REVIEWCELL_BOARDER - rateSize.width;
     CGFloat rateY    = CGRectGetMidY(self.avatarViewFrame) - rateSize.height * 0.5;
     self.rateLabelFrame = (CGRect){{rateX, rateY}, rateSize};
     //  星
-    CGFloat rateViewX = rateX - JHReviewCellGutter - JHStarSide * 5;
-    CGFloat rateViewY = CGRectGetMidY(self.avatarViewFrame) - JHStarSide * 0.5;
+    CGFloat rateViewX = rateX - JH_REVIEWCELL_GUTTER - JH_STAR_SIDE * 5;
+    CGFloat rateViewY = CGRectGetMidY(self.avatarViewFrame) - JH_STAR_SIDE * 0.5;
     self.rateViewFrame = CGRectMake(rateViewX, rateViewY, 0, 0);
+//    self.rateViewFrame = CGRectMake(rateViewX, rateViewY, arc4random_uniform(JH_STAR_SIDE * 5), 0);
     //  正文
-    CGFloat contentX    = JHReviewCellBoarder;
-    CGFloat contentY    = CGRectGetMaxY(self.avatarViewFrame) + JHReviewCellGutter;
+    CGFloat contentX    = JH_REVIEWCELL_BOARDER;
+    CGFloat contentY    = CGRectGetMaxY(self.avatarViewFrame) + JH_REVIEWCELL_GUTTER;
     CGFloat maxWidth    = cellWidth - 2 * contentX;
-    CGSize  contentSize = [review.content sizeWithFont:JHReviewCellContentFont maxWidth:maxWidth];
+    CGSize  contentSize = [review.content sizeWithFont:JH_REVIEWCELL_CONTENT_FONT maxWidth:maxWidth];
     self.contentLabelFrame = (CGRect){{contentX, contentY}, contentSize};
 
     //  配图
     if (review.pictures.count) {    //  有配图
-        CGFloat picturesX      = JHReviewCellBoarder;
-        CGFloat picturesY      = CGRectGetMaxY(self.contentLabelFrame) + JHReviewCellGutter;
-        CGFloat picturesWidth  = cellWidth - JHReviewCellBoarder * 2;
-        CGFloat picturesHeight = (picturesWidth - JHReviewCellGutter * 3) * 0.25;
+        CGFloat picturesX      = JH_REVIEWCELL_BOARDER;
+        CGFloat picturesY      = CGRectGetMaxY(self.contentLabelFrame) + JH_REVIEWCELL_GUTTER;
+        CGFloat picturesWidth  = cellWidth - JH_REVIEWCELL_BOARDER * 2;
+        CGFloat picturesHeight = (picturesWidth - JH_REVIEWCELL_GUTTER * 3) * 0.25;
         self.picturesViewFrame = CGRectMake(picturesX, picturesY, picturesWidth, picturesHeight);
-        detailY                = CGRectGetMaxY(self.picturesViewFrame) + JHReviewCellGutter;
+        detailY                = CGRectGetMaxY(self.picturesViewFrame) + JH_REVIEWCELL_GUTTER;
 
     } else {
-        detailY = CGRectGetMaxY(self.contentLabelFrame) + JHReviewCellGutter;
+        detailY = CGRectGetMaxY(self.contentLabelFrame) + JH_REVIEWCELL_GUTTER;
     }
 
     //  细节
-    CGFloat detailX    = JHReviewCellBoarder;
-    CGSize  detailSize = [review.detail sizeWithFont:JHReviewCellContentFont maxWidth:maxWidth];
+    CGFloat detailX    = JH_REVIEWCELL_BOARDER;
+    CGSize  detailSize = [review.detail sizeWithFont:JH_REVIEWCELL_DETAIL_FONT maxWidth:maxWidth];
     self.detailLabelFrame = (CGRect){{detailX, detailY}, detailSize};
     //  cell的高度
-    self.cellHeight = CGRectGetMaxY(self.detailLabelFrame) + JHReviewCellGutter;
+    self.cellHeight = CGRectGetMaxY(self.detailLabelFrame) + JH_REVIEWCELL_GUTTER;
     //  整体
     self.reviewViewFrame = CGRectMake(0, 0, cellWidth, self.cellHeight);
     //  分割线

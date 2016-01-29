@@ -8,8 +8,6 @@
 
 #import "ViewController.h"
 
-#import <WebKit/WebKit.h>
-
 #import "UIBarButtonItem+Extension.h"
 #import "JHHTTPManager.h"
 
@@ -19,6 +17,7 @@
 @property(nonatomic, strong) JHSlideView           *slideView;
 @property(nonatomic, strong) JHTableViewController *reviewController;
 @property(nonatomic, strong) JHTableViewController *photoController;
+@property (nonatomic, strong) WKWebView            *webView;
 @end
 
 @implementation ViewController
@@ -27,7 +26,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.view.tintColor = JHDefaultColor;
+    self.navigationController.view.tintColor = JH_DEFAULT_COLOR;
 
     [self.view addSubview:self.slideView];
     [self.slideView loadView:self.reviewController.tableView forPlaceHolderViewAtIndex:JHSlideViewTypeAll];
@@ -54,7 +53,9 @@
         [self.photoController getReviews];
     } break;
     case JHSlideViewTypeV2EX: {
-        WKWebView    *webView = [[WKWebView alloc] init];
+        WKWebView *webView = [[WKWebView alloc] init];
+        webView.navigationDelegate = self;
+        self.webView               = webView;
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://v2ex.com/"]];
         [webView loadRequest:request];
         [self.slideView loadView:webView forPlaceHolderViewAtIndex:index];
@@ -67,6 +68,13 @@
         [self.slideView loadView:webView forPlaceHolderViewAtIndex:index];
     } break;
     }
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [_webView evaluateJavaScript:@"document.getElementById('Top').offsetWidth" completionHandler:^(id _Nullable result, NSError *_Nullable error) {
+//         NSLog(@"%@", result);
+//         NSLog(@"%@", error);
+     }];
 }
 
 #pragma mark JHTableViewControllerDelegate

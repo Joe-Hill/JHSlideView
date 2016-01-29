@@ -12,11 +12,16 @@
 
 @implementation UIImageView (WebImage)
 - (void)setWebImageWithURL:(NSString *)url placeHolder:(NSString *)placeHolder {
-	[self yy_setImageWithURL:[NSURL URLWithString:url]
-	 placeholder:[UIImage imageNamed:placeHolder]
-	 options:YYWebImageOptionProgressiveBlur |
-	 YYWebImageOptionSetImageWithFadeAnimation
-	 completion:nil];
+    [self yy_setImageWithURL:[NSURL URLWithString:url]
+                 placeholder:[UIImage imageNamed:placeHolder]
+                     options:YYWebImageOptionSetImageWithFadeAnimation
+                  completion:nil];
+}
+
+- (void)setWebImageWithURL:(NSString *)url placeHolder:(NSString *)placeHolder radius:(CGFloat)radius {
+    [self setWebImageWithURL:url placeHolder:placeHolder];
+    self.layer.cornerRadius = radius;
+    self.clipsToBounds      = YES;
 }
 
 @end
