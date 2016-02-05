@@ -25,6 +25,7 @@
 		D89BB6B81C45A51300DB2597 /* JHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89BB6B71C45A51300DB2597 /* JHTableViewController.m */; };
 		D89C28981C401B0C002CA050 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C28971C401B0C002CA050 /* UIBarButtonItem+Extension.m */; };
 		D89C289B1C401B34002CA050 /* UIView+Simplify.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C289A1C401B34002CA050 /* UIView+Simplify.m */; };
+		D8BB4A521C60D84800C7F6B5 /* UIViewController+AOP.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BB4A511C60D84800C7F6B5 /* UIViewController+AOP.m */; };
 		D8D2EA511C4024C2007AD523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D2EA501C4024C2007AD523 /* Assets.xcassets */; };
 		D8F9AB361C400FAF00C4B76B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F9AB351C400FAF00C4B76B /* main.m */; };
 		D8F9AB391C400FAF00C4B76B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F9AB381C400FAF00C4B76B /* AppDelegate.m */; };
@@ -92,6 +93,8 @@
 		D89C28991C401B34002CA050 /* UIView+Simplify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Simplify.h"; sourceTree = "<group>"; };
 		D89C289A1C401B34002CA050 /* UIView+Simplify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Simplify.m"; sourceTree = "<group>"; };
 		D89C289C1C401BA2002CA050 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D8BB4A501C60D84800C7F6B5 /* UIViewController+AOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AOP.h"; sourceTree = "<group>"; };
+		D8BB4A511C60D84800C7F6B5 /* UIViewController+AOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AOP.m"; sourceTree = "<group>"; };
 		D8D2EA501C4024C2007AD523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F9AB311C400FAF00C4B76B /* ProductReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F9AB351C400FAF00C4B76B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				D89BB6981C4527BA00DB2597 /* UIImageView+WebImage.m */,
 				D89C28991C401B34002CA050 /* UIView+Simplify.h */,
 				D89C289A1C401B34002CA050 /* UIView+Simplify.m */,
+				D8BB4A501C60D84800C7F6B5 /* UIViewController+AOP.h */,
+				D8BB4A511C60D84800C7F6B5 /* UIViewController+AOP.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				D89C28981C401B0C002CA050 /* UIBarButtonItem+Extension.m in Sources */,
 				D89C289B1C401B34002CA050 /* UIView+Simplify.m in Sources */,
 				D83D63E61C421D2C00B9D29E /* JHPageView.m in Sources */,
+				D8BB4A521C60D84800C7F6B5 /* UIViewController+AOP.m in Sources */,
 				D856CB1C1C42A80A00FB99B8 /* JHReviewFrame.m in Sources */,
 				D89BB6B81C45A51300DB2597 /* JHTableViewController.m in Sources */,
 				D89BB6B11C454DB300DB2597 /* JHPicturesView.m in Sources */,
