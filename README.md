@@ -2,7 +2,7 @@
 
 JHSlideView 是一个简洁又易用的连动视图页面。随着手机屏幕增大，点击上方的按钮实现页面切换显得力不从心。滑动翻页这种交互显得友好易用。
 
-![](http://7xkgg5.com1.z0.glb.clouddn.com/Others/JHSlideView.gif)
+![](README.gif)
 
 ## 特性
 
@@ -23,4 +23,3 @@ JHSlideView 是一个简洁又易用的连动视图页面。随着手机屏幕�
 - [YYWebImage](https://github.com/ibireme/YYWebImage)
   
   ​
-
