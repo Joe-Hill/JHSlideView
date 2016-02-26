@@ -106,8 +106,7 @@
 - (JHTableViewController *)photoController {
     if (_photoController == nil) {
         _photoController = [[JHTableViewController alloc] initWithViewType:JHSlideViewTypePhoto];
-        [self addChildViewController:self.photoController];
-        self.reviewController = self.photoController;
+        [self addChildViewController:_photoController];
     }
     return _photoController;
 }
